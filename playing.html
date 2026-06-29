@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Playing with Feather Wand - Momo</title>
+    <link rel="stylesheet" href="style.css">
+    <style>
+        .gallery-page {
+            padding: 4rem 2rem;
+            background: var(--bg-light);
+            min-height: 100vh;
+        }
+
+        .gallery-header {
+            text-align: center;
+            margin-bottom: 3rem;
+        }
+
+        .back-button {
+            display: inline-block;
+            background: var(--accent-indigo);
+            color: var(--bg-white);
+            padding: 0.8rem 1.5rem;
+            border-radius: 8px;
+            text-decoration: none;
+            font-weight: 600;
+            transition: all 0.3s ease;
+            margin-bottom: 2rem;
+        }
+
+        .back-button:hover {
+            transform: translateY(-2px);
+            box-shadow: var(--shadow-md);
+        }
+
+        .gallery-page-title {
+            font-size: 2.5rem;
+            color: var(--text-dark);
+            margin-bottom: 2rem;
+            font-weight: 700;
+        }
+
+        .pictures-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            margin-top: 2rem;
+        }
+
+        .picture-card {
+            background: var(--bg-white);
+            border-radius: 12px;
+            overflow: hidden;
+            box-shadow: var(--shadow-md);
+            transition: all 0.3s ease;
+        }
+
+        .picture-card:hover {
+            transform: translateY(-8px);
+            box-shadow: var(--shadow-lg);
+        }
+
+        .picture-image {
+            width: 100%;
+            height: 300px;
+            background: linear-gradient(135deg, #FF7B9C 0%, #6366F1 100%);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 4rem;
+            color: var(--bg-white);
+        }
+
+        .picture-info {
+            padding: 1.5rem;
+            text-align: center;
+        }
+
+        .picture-info p {
+            color: var(--text-light);
+            font-size: 0.95rem;
+        }
+
+        .container-gallery {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 2rem;
+        }
+
+        @media (max-width: 768px) {
+            .gallery-page-title {
+                font-size: 1.8rem;
+            }
+
+            .pictures-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- NAVIGATION BAR -->
+    <nav class="navbar">
+        <div class="nav-container">
+            <div class="logo">🐱 Momo</div>
+            <ul class="nav-links">
+                <li><a href="index.html#home">Home</a></li>
+                <li><a href="index.html#about">About</a></li>
+                <li><a href="index.html#blog">Blog</a></li>
+                <li><a href="index.html#gallery">Gallery</a></li>
+                <li><a href="index.html#fun">Fun Stuff</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <!-- GALLERY PAGE CONTENT -->
+    <div class="gallery-page">
+        <div class="container-gallery">
+            <div class="gallery-header">
+                <a href="index.html#gallery" class="back-button">← Back to Gallery</a>
+                <h1 class="gallery-page-title">🎣 Playing with Feather Wand</h1>
+                <p style="color: var(--text-light); font-size: 1.1rem;">Check out all my playtime moments!</p>
+            </div>
+
+            <div class="pictures-grid">
+                <!-- Picture 1 -->
+                <div class="picture-card">
+                    <div class="picture-image">
+                        🪶
+                    </div>
+                    <div class="picture-info">
+                        <p>Playing with my favorite toy!</p>
+                    </div>
+                </div>
+
+                <!-- Picture 2 -->
+                <div class="picture-card">
+                    <div class="picture-image">
+                        🎾
+                    </div>
+                    <div class="picture-info">
+                        <p>Pouncing and attacking mode!</p>
+                    </div>
+                </div>
+
+                <!-- Picture 3 -->
+                <div class="picture-card">
+                    <div class="picture-image">
+                        😸
+                    </div>
+                    <div class="picture-info">
+                        <p>Happy playtime with my humans!</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- FOOTER -->
+    <footer class="footer">
+        <div class="container">
+            <p>Made with 💕 by Momo the Ragdoll</p>
+            <p>Follow my adventures and weekly updates!</p>
+            <div class="social-links">
+                <a href="#" class="social-icon">📸 Instagram</a>
+                <a href="#" class="social-icon">🐦 Twitter</a>
+                <a href="#" class="social-icon">📧 Email</a>
+            </div>
+            <p class="footer-year">&copy; 2026 Momo. All paws reserved. 🐱</p>
+        </div>
+    </footer>
+
+    <!-- JAVASCRIPT -->
+    <script src="script.js"></script>
+</body>
+</html>
