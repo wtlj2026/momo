@@ -10,91 +10,104 @@
             padding: 4rem 2rem;
             background: var(--bg-light);
             min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
         }
 
-        .gallery-header {
+        .modal-overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.5);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            z-index: 1000;
+        }
+
+        .modal {
+            background: var(--bg-white);
+            border-radius: 16px;
+            padding: 3rem;
             text-align: center;
-            margin-bottom: 3rem;
+            max-width: 500px;
+            box-shadow: var(--shadow-lg);
+            animation: slideIn 0.3s ease;
         }
 
-        .back-button {
-            display: inline-block;
-            background: var(--accent-indigo);
-            color: var(--bg-white);
-            padding: 0.8rem 1.5rem;
-            border-radius: 8px;
-            text-decoration: none;
-            font-weight: 600;
-            transition: all 0.3s ease;
+        @keyframes slideIn {
+            from {
+                opacity: 0;
+                transform: translateY(-30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .modal-title {
+            font-size: 2.5rem;
+            color: var(--text-dark);
+            margin-bottom: 1.5rem;
+            font-weight: 700;
+        }
+
+        .modal-text {
+            color: var(--text-light);
+            font-size: 1.1rem;
+            line-height: 1.8;
             margin-bottom: 2rem;
         }
 
-        .back-button:hover {
+        .modal-emoji {
+            font-size: 4rem;
+            margin-bottom: 1.5rem;
+            animation: bounce 2s infinite;
+        }
+
+        .close-button {
+            background: var(--accent-indigo);
+            color: var(--bg-white);
+            padding: 0.8rem 2rem;
+            border: none;
+            border-radius: 8px;
+            font-size: 1rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            font-family: 'Poppins', sans-serif;
+        }
+
+        .close-button:hover {
             transform: translateY(-2px);
             box-shadow: var(--shadow-md);
         }
 
-        .gallery-page-title {
-            font-size: 2.5rem;
-            color: var(--text-dark);
-            margin-bottom: 2rem;
-            font-weight: 700;
-        }
-
-        .pictures-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 2rem;
-            margin-top: 2rem;
-        }
-
-        .picture-card {
-            background: var(--bg-white);
-            border-radius: 12px;
-            overflow: hidden;
-            box-shadow: var(--shadow-md);
-            transition: all 0.3s ease;
-        }
-
-        .picture-card:hover {
-            transform: translateY(-8px);
-            box-shadow: var(--shadow-lg);
-        }
-
-        .picture-image {
-            width: 100%;
-            height: 300px;
-            background: linear-gradient(135deg, #FF7B9C 0%, #6366F1 100%);
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 4rem;
-            color: var(--bg-white);
-        }
-
-        .picture-info {
-            padding: 1.5rem;
-            text-align: center;
-        }
-
-        .picture-info p {
-            color: var(--text-light);
-            font-size: 0.95rem;
-        }
-
-        .container-gallery {
-            max-width: 1200px;
-            margin: 0 auto;
-            padding: 0 2rem;
+        @keyframes bounce {
+            0%, 100% {
+                transform: translateY(0);
+            }
+            50% {
+                transform: translateY(-15px);
+            }
         }
 
         @media (max-width: 768px) {
-            .gallery-page-title {
+            .modal {
+                padding: 2rem;
+                margin: 1rem;
+            }
+
+            .modal-title {
                 font-size: 1.8rem;
             }
 
-            .pictures-grid {
-                grid-template-columns: 1fr;
+            .modal-emoji {
+                font-size: 3rem;
             }
         }
     </style>
@@ -114,46 +127,14 @@
         </div>
     </nav>
 
-    <!-- GALLERY PAGE CONTENT -->
-    <div class="gallery-page">
-        <div class="container-gallery">
-            <div class="gallery-header">
-                <a href="index.html#gallery" class="back-button">← Back to Gallery</a>
-                <h1 class="gallery-page-title">🎣 Playing with Feather Wand</h1>
-                <p style="color: var(--text-light); font-size: 1.1rem;">Check out all my playtime moments!</p>
-            </div>
-
-            <div class="pictures-grid">
-                <!-- Picture 1 -->
-                <div class="picture-card">
-                    <div class="picture-image">
-                        🪶
-                    </div>
-                    <div class="picture-info">
-                        <p>Playing with my favorite toy!</p>
-                    </div>
-                </div>
-
-                <!-- Picture 2 -->
-                <div class="picture-card">
-                    <div class="picture-image">
-                        🎾
-                    </div>
-                    <div class="picture-info">
-                        <p>Pouncing and attacking mode!</p>
-                    </div>
-                </div>
-
-                <!-- Picture 3 -->
-                <div class="picture-card">
-                    <div class="picture-image">
-                        😸
-                    </div>
-                    <div class="picture-info">
-                        <p>Happy playtime with my humans!</p>
-                    </div>
-                </div>
-            </div>
+    <!-- COMING SOON POPUP -->
+    <div class="modal-overlay">
+        <div class="modal">
+            <div class="modal-emoji">🎣</div>
+            <h1 class="modal-title">Coming Soon!</h1>
+            <p class="modal-text">More amazing playtime photos are on the way! 📸</p>
+            <p class="modal-text">Check back soon to see all my adventures with the feather wand! 🪶</p>
+            <button class="close-button" onclick="window.location.href='index.html#gallery'">Back to Gallery</button>
         </div>
     </div>
 
